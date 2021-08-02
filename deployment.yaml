@@ -16,13 +16,14 @@ spec:
         app: wiki-boom
     spec:
       containers:
+      - name: back-end
+        image: werta/wiki_boom:back_end
+        imagePullPolicy: IfNotPresent
       - name: front-end
         image: werta/wiki_boom:front_end
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8000
-        env:
-          # Use secret in real usage
         livenessProbe:
           httpGet:
             port: 8000
