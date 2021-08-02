@@ -20,14 +20,14 @@ spec:
         image: werta/wiki_boom:front_end
         imagePullPolicy: IfNotPresent
         ports:
-        - containerPort: 8989
+        - containerPort: 8000
         env:
           # Use secret in real usage
         - name: SQL_HOST
           value: db
         livenessProbe:
           httpGet:
-            port: 8989
+            port: 8000
           initialDelaySeconds: 5
           periodSeconds: 10
           failureThreshold: 2
