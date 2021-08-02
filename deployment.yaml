@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: back-end
-        image: werta/wiki_boom:back_end
+        image: werta/wiki_boom:back_end2
         imagePullPolicy: IfNotPresent
       - name: front-end
         image: werta/wiki_boom:front_end
