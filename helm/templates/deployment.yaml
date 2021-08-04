@@ -1,26 +1,26 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: wiki-boom
-  namespace: default
+  name: {{ .Release.Name }}
+  namespace:  {{ .Values.metadata.namespace }}
   labels:
-    app: wiki-boom
+    app:{{ .Release.Name }}
 spec:
-  replicas: 1
+  replicas: {{ .Values.spec.replicas }}
   selector:
     matchLabels:
-      app: wiki-boom
+      app: {{ .Release.Name }}
   template:
     metadata:
       labels:
-        app: wiki-boom
+        app: {{ .Release.Name }}
     spec:
       containers:
       - name: back-end
-        image: werta/wiki_boom:back_end2
+        image: {{ .Values.containers.back_end_image }}
         imagePullPolicy: IfNotPresent
       - name: front-end
-        image: werta/wiki_boom:front_end
+        image: {{ .Values.containers.front_end_image }}
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8000
