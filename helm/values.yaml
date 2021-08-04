@@ -1,0 +1,11 @@
+# Default Values for my Helm Chart
+
+containers:
+    back_end_image: werta/wiki_boom:back_end2
+    front_end_image: werta/wiki_boom:front_end
+    
+metadata:
+  namespace: default
+
+spec:
+  replicas: 1
